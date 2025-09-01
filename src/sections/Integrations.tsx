@@ -5,7 +5,6 @@ import slackIcon from "@/assets/images/slack-logo.svg"
 import framerIcon from "@/assets/images/framer-logo.svg"
 import githubIcon from "@/assets/images/github-logo.svg"
 import relumeIcon from "@/assets/images/relume-logo.svg"
-import Image from "next/image"
 import IntegrationCol from "@/components/IntegrationCol"
 
 const integrations = [
@@ -22,7 +21,7 @@ export type integrationType = typeof integrations
 
 export default function Integrations() {
   return (
-    <section>
+    <section className="py-24">
       <div className="container">
         <div className="lg:grid lg:grid-cols-2 items-center lg:gap-96">
           <div>
@@ -34,7 +33,7 @@ export default function Integrations() {
           </div>
 
           <div>
-            <div className="mt-8 h-[420px] lg:h-[800px] overflow-hidden md:grid md:grid-cols-2 md:gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+            <div className="mt-8 lg:mt-0 h-[420px] lg:h-[800px] overflow-hidden md:grid md:grid-cols-2 md:gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
               <IntegrationCol integrations={integrations} />
               <IntegrationCol integrations={integrations.slice().reverse()} className="hidden md:flex" />
             </div>
