@@ -9,18 +9,20 @@ export default function Hero() {
     <section className="py-24 overflow-x-clip">
       <div className="container relative">
 
-        <div className="absolute -left-32 top-16 hidden lg:block">
-          <Image src={designExampleOne} alt="design example one" />
-        </div>
-        <div className="absolute -right-64 -top-16 hidden lg:block">
-          <Image src={designExampleTwo} alt="design example two" />
-        </div>
+        <div className="hidden lg:block">
+          <div className="absolute -left-32 top-16 hidden lg:block">
+            <Image src={designExampleOne} alt="design example one" />
+          </div>
+          <div className="absolute -right-64 -top-16 hidden lg:block">
+            <Image src={designExampleTwo} alt="design example two" />
+          </div>
 
-        <div className="absolute left-56 top-96">
-          <Pointer name="Andrea" bgColor="lightBlue" />
-        </div>
-        <div className="absolute right-[500px] -top-4">
-          <Pointer name="Bryan" bgColor="lightRed" />
+          <div className="absolute left-56 top-96">
+            <Pointer name="Andrea" bgColor="lightBlue" />
+          </div>
+          <div className="absolute right-[500px] -top-4">
+            <Pointer name="Bryan" bgColor="lightRed" />
+          </div>
         </div>
 
         <div className="flex justify-center items-center">
