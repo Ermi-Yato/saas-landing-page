@@ -1,32 +1,77 @@
 // ----------------------------------------------------
 // HERO SECTION
 // ----------------------------------------------------
+"use client"
 
 import Button from "@/components/Button"
 import designExampleOne from "@/assets/images/design-example-1.png"
 import designExampleTwo from "@/assets/images/design-example-2.png"
 import Image from "next/image"
 import { Pointer } from "@/components/Pointer"
+import { motion, useAnimate } from "framer-motion"
+import { useEffect } from "react"
+import { use } from "framer-motion/m"
 
 export default function Hero() {
+  const [leftDesignScope, leftDesignAnimate] = useAnimate()
+  const [rightDesignScope, rightDesignAnimate] = useAnimate()
+  const [leftPointerScope, leftPointerAnimate] = useAnimate()
+  const [rightPointerScope, rightPointerAnimate] = useAnimate()
+
+  useEffect(() => {
+    leftDesignAnimate([
+      [leftDesignScope.current, { opacity: 1 }, { duration: 1 }],
+      [leftDesignScope.current, { x: 0, y: 0 }, { duration: 1 }]
+    ])
+
+    rightDesignAnimate([
+      [rightDesignScope.current, { opacity: 1 }, { duration: 1 }],
+      [rightDesignScope.current, { x: 0, y: 0 }, { duration: 1 }]
+    ])
+
+    leftPointerAnimate([
+      [leftPointerScope.current, { opacity: 1 }, { duration: 1 }],
+      [leftPointerScope.current, { x: -100, y: 0 }, { duration: 1 }],
+      [leftPointerScope.current, { x: 0, y: [0, 10, 0] }, { duration: 1 }]
+    ])
+
+    rightPointerAnimate([
+      [rightPointerScope.current, { opacity: 1 }, { duration: 1 }],
+      [rightPointerScope.current, { x: 350, y: 0 }, { duration: 1 }],
+      [rightPointerScope.current, { x: 0, y: [0, -15, 0] }, { duration: 1 }],
+    ])
+
+  }, [])
   return (
     <section className="py-24 overflow-x-clip">
       <div className="container relative">
 
         <div className="hidden lg:block">
-          <div className="absolute -left-32 top-16 hidden lg:block">
+          <motion.div
+            initial={{ opacity: 0, x: -100, y: 100 }}
+            ref={leftDesignScope}
+            className="absolute -left-32 top-16 hidden lg:block">
             <Image src={designExampleOne} alt="design example one" />
-          </div>
-          <div className="absolute -right-64 -top-16 hidden lg:block">
-            <Image src={designExampleTwo} alt="design example two" />
-          </div>
-
-          <div className="absolute left-56 top-96">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -200, y: 100 }}
+            ref={leftPointerScope}
+            className="absolute left-56 top-96">
             <Pointer name="Andrea" bgColor="lightBlue" />
-          </div>
-          <div className="absolute right-[500px] -top-4">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 100, y: 100 }}
+            ref={rightDesignScope}
+            className="absolute -right-64 -top-16 hidden lg:block">
+            <Image src={designExampleTwo} alt="design example two" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 450, y: 100 }}
+            ref={rightPointerScope}
+            className="absolute right-[500px] -top-4">
             <Pointer name="Bryan" bgColor="lightRed" />
-          </div>
+          </motion.div>
         </div>
 
         <div className="flex justify-center items-center">
