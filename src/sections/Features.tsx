@@ -1,3 +1,7 @@
+// ----------------------------------------------------
+// FEATURES SECTION
+// ----------------------------------------------------
+
 import { Tag } from "@/components/Tag"
 import { FeatureCard } from "@/components/FeatureCard"
 import avatar1 from "@/assets/images/avatar-ashwin-santiago.jpg"

@@ -1,3 +1,7 @@
+// ----------------------------------------------------
+// LOGOTICKER SECTION
+// ----------------------------------------------------
+
 import quantumLogo from "@/assets/images/quantum.svg";
 import acmeLogo from "@/assets/images/acme-corp.svg";
 import echoValleyLogo from "@/assets/images/echo-valley.svg";

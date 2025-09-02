@@ -1,3 +1,7 @@
+// ----------------------------------------------------
+// HERO SECTION
+// ----------------------------------------------------
+
 import Button from "@/components/Button"
 import designExampleOne from "@/assets/images/design-example-1.png"
 import designExampleTwo from "@/assets/images/design-example-2.png"

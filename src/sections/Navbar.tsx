@@ -1,3 +1,7 @@
+// ----------------------------------------------------
+// NAVIGATION BAR SECTION
+// ----------------------------------------------------
+
 import logoImage from "@/assets/images/logo.svg"
 import Image from "next/image"
 import Button from "@/components/Button"
