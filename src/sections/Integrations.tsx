@@ -39,7 +39,7 @@ export default function Integrations() {
           <div>
             <div className="mt-8 lg:mt-0 h-[420px] lg:h-[800px] overflow-hidden md:grid md:grid-cols-2 md:gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
               <IntegrationCol integrations={integrations} />
-              <IntegrationCol integrations={integrations.slice().reverse()} className="hidden md:flex" />
+              <IntegrationCol integrations={integrations.slice().reverse()} className="hidden md:flex" isReversed={true} />
             </div>
           </div>
         </div>

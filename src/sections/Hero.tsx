@@ -25,7 +25,7 @@ export default function Hero() {
     ])
 
     rightDesignAnimate([
-      [rightDesignScope.current, { opacity: 1 }, { duration: 1 }],
+      [rightDesignScope.current, { opacity: 1 }, { duration: 1, delay: 3 }],
       [rightDesignScope.current, { x: 0, y: 0 }, { duration: 1 }]
     ])
 
@@ -36,9 +36,9 @@ export default function Hero() {
     ])
 
     rightPointerAnimate([
-      [rightPointerScope.current, { opacity: 1 }, { duration: 1 }],
+      [rightPointerScope.current, { opacity: 1 }, { duration: 1, delay: 3 }],
       [rightPointerScope.current, { x: 350, y: 0 }, { duration: 1 }],
-      [rightPointerScope.current, { x: 0, y: [0, -15, 0] }, { duration: 1 }],
+      [rightPointerScope.current, { x: 0, y: [0, 50, 0] }, { duration: 1, ease: "easeInOut" }],
     ])
 
   }, [])
@@ -50,8 +50,9 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -100, y: 100 }}
             ref={leftDesignScope}
+            drag
             className="absolute -left-32 top-16 hidden lg:block">
-            <Image src={designExampleOne} alt="design example one" />
+            <Image src={designExampleOne} alt="design example one" draggable="false" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -200, y: 100 }}
@@ -63,8 +64,9 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 100, y: 100 }}
             ref={rightDesignScope}
+            drag
             className="absolute -right-64 -top-16 hidden lg:block">
-            <Image src={designExampleTwo} alt="design example two" />
+            <Image src={designExampleTwo} alt="design example two" draggable="false" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 450, y: 100 }}

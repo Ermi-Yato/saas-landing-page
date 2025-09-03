@@ -1,9 +1,11 @@
 // ----------------------------------------------------
 // FAQS SECTION
 // ----------------------------------------------------
-
+"use client"
 import { Tag } from "@/components/Tag"
+import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { AnimatePresence, motion } from "framer-motion";
 
 const faqs = [
   {
@@ -29,7 +31,7 @@ const faqs = [
 ];
 
 export default function Faqs() {
-  const selectedQuestionIndex = 0
+  const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0)
   return (
     <section className="py-24">
       <div className="container">
@@ -41,17 +43,31 @@ export default function Faqs() {
         <div className="mt-12 flex flex-col gap-6 md:max-w-xl mx-auto">
           {faqs.map((faq, index) => (
             <div key={faq.question}
-              className="bg-neutral-900 rounded-2xl p-6 border border-white/10"
+              className="bg-neutral-900 rounded-2xl p-6 border border-white/10 cursor-pointer"
+              onClick={() => setSelectedQuestionIndex(index)}
             >
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center"
+              >
                 <h3 className="font-medium">{faq.question}</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={twMerge("feather feather-plus text-lime-400 flex-shrink-0", selectedQuestionIndex === index && "rotate-45")}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={twMerge("feather feather-plus text-lime-400 flex-shrink-0 cursor-pointer transition duration-300", selectedQuestionIndex === index && "rotate-45")}
+                >
                   <line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
               </div>
-              <div className={twMerge("mt-6", selectedQuestionIndex !== index && "hidden")}>
-                <p className="text-white/50">{faq.answer}</p>
-              </div>
+
+              <AnimatePresence>
+                {selectedQuestionIndex === index && (
+                  <motion.div className={twMerge("overflow-hidden")}
+                    initial={{ height: 0, marginTop: 0 }}
+                    animate={{ height: 'auto', marginTop: "mt-6" }}
+                    exit={{ height: 0 }}
+                  >
+                    <p className="text-white/50 mt-6">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+
             </div>
           ))}
         </div>
