@@ -24,7 +24,7 @@ const features = [
 export default function Features() {
   const arr = new Array(3).fill(0)
   return (
-    <section className="py-24">
+    <section className="py-24" id="features">
       <div className="container">
         <div className="flex justify-center">
           <Tag>Features</Tag>
@@ -71,8 +71,8 @@ export default function Features() {
 
         <div className="mt-8 flex flex-wrap gap-3 justify-center lg:max-w-5xl lg:mx-auto">
           {features.map(feature => (
-            <div key={feature} className="inline-flex items-center gap-2 bg-neutral-900 border border-white/10 px-3 md:px-5 py-1.5 md:py-2 rounded-2xl justify-self-start">
-              <span className="text-neutral-950 bg-lime-400 rounded-full size-5 inline-flex items-center justify-center text-xl">&#10038;</span>
+            <div key={feature} className="inline-flex items-center gap-2 bg-neutral-900 border border-white/10 px-3 md:px-5 py-1.5 md:py-2 rounded-2xl justify-self-start cursor-pointer group hover:scale-105 transition duration-300">
+              <span className="text-neutral-950 bg-lime-400 rounded-full size-5 inline-flex items-center justify-center text-xl group-hover:rotate-60 transition duration-300">&#10038;</span>
               <span className="font-medium md:text-lg">
                 {feature}
               </span>

@@ -33,7 +33,7 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false)
   return (
     <>
-      <section className="py-4 lg:py-8 fixed w-full top-0 z-50">
+      <section className="py-4 lg:py-8 fixed w-full top-0 z-50" id="#">
         <div className="container max-w-5xl">
           <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/60 backdrop-blur-lg">
             <div className="grid grid-cols-2 lg:grid-cols-3 p-2 items-center px-4 md:pr-2">
@@ -44,7 +44,7 @@ export default function Navbar() {
               <div className="lg:flex items-center justify-center hidden">
                 <nav className="flex gap-4 font-medium">
                   {navLinks.map((link) => (
-                    <a href={link.href} key={link.label}>{link.label}</a>
+                    <a href={link.href} key={link.label} className="hover:text-lime-400 transition-colors">{link.label}</a>
                   ))}
                 </nav>
               </div>
