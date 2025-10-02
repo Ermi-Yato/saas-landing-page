@@ -21,3 +21,5 @@ Framework: Next.js (with React)
 Styling: Tailwind CSS
 
 Animation: Framer Motion
+
+[Live url](https://saas-landing-page-coral-tau.vercel.app/)
